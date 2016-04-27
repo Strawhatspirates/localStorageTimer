@@ -1,16 +1,18 @@
 module.exports = localStorageTimer= (function(window){
+     if(!window.sessionStorage)
+         window.sessionStorage = window.localStorage
      function putItemwithExpiry(key, value, expiry){
        if(expiry instanceof String)
            expiry = parseInt(expiry);
-       window.localStorage.setItem(key, value);
+       window.sessionStorage.setItem(key, value);
        setTimeout(function(){
-         window.localStorage.removeItem(key);
+         window.sessionStorage.removeItem(key);
        }, expiry * 1000);
      };
 
     return {
       getItem: function(key){
-        return window.localStorage.getItem(key);
+        return window.sessionStorage.getItem(key);
       },
       setItem: function(key, value, options){
         options = options || {};
@@ -18,7 +20,7 @@ module.exports = localStorageTimer= (function(window){
         putItemwithExpiry(key, value, expiry);
       },
       removeItem: function(key){
-        window.localStorage.removeItem(key);
+        window.sessionStorage.removeItem(key);
       }
     }
 })(window);

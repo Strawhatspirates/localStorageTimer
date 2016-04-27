@@ -28,14 +28,14 @@ function storageMock() {
 };
 
 window =  {};
-window.localStorage = storageMock();
+window.sessionStorage = storageMock();
 var Storage = require('./index.js');
 
 describe('localStorageTimer Test', function() {
     this.timeout(10000);
 
     afterEach(function() {
-        window.localStorage.clear();
+        window.sessionStorage.clear();
     });
 
     it('should put the Item on to storage', function() {
