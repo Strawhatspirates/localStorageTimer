@@ -1,5 +1,7 @@
 ##LocalStorageTimer
 
+[![Build Status](https://travis-ci.org/Strawhatspirates/localStorageTimer.svg?branch=master)](https://travis-ci.org/Strawhatspirates/localStorageTimer)
+
 Adding Timer Capabilities for localStorage.
 
 
